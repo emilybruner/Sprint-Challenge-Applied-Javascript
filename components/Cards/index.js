@@ -21,11 +21,32 @@
 axios.get("https://lambda-times-backend.herokuapp.com/articles")
     .then(response => {
         console.log(response);
+
+        response.data.articles.bootstrap.forEach(item => {
+            container.appendChild(CreateCard(item));
+        });
+
+        response.data.articles.javascript.forEach(item => {
+            container.appendChild(CreateCard(item));
+        });
+
+        response.data.articles.technology.forEach(item => {
+            container.appendChild(CreateCard(item));
+        });
+
+        response.data.articles.node.forEach(item => {
+            container.appendChild(CreateCard(item));
+        });
+
+        response.data.articles.jquery.forEach(item => {
+            container.appendChild(CreateCard(item));
+        });
     })
     .catch(error => {
         console.log(error);
     });
 
+const container = document.querySelector(".cards-container")
 
 function CreateCard(data) {
     //create elements
